@@ -1,0 +1,413 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --font-display: "Bricolage Grotesque";
+    --font-body: "DM Sans";
+    --font-mono: "Geist Mono";
+    --radius: 0.5rem;
+
+    --background: 0.98 0 0;
+    --foreground: 0.12 0 0;
+    --card: 0.99 0 0;
+    --card-foreground: 0.12 0 0;
+    --popover: 0.99 0 0;
+    --popover-foreground: 0.12 0 0;
+
+    --primary: 0.32 0.18 160;
+    --primary-foreground: 0.98 0 0;
+
+    --secondary: 0.25 0.2 25;
+    --secondary-foreground: 0.98 0 0;
+    --muted: 0.9 0 0;
+    --muted-foreground: 0.45 0 0;
+
+    --accent: 0.6 0.18 45;
+    --accent-foreground: 0.98 0 0;
+
+    --destructive: 0.55 0.22 25;
+    --destructive-foreground: 0.98 0 0;
+
+    --border: 0.88 0 0;
+    --input: 0.92 0 0;
+    --ring: 0.32 0.18 160;
+
+    --chart-1: 0.32 0.18 160;
+    --chart-2: 0.25 0.2 25;
+    --chart-3: 0.6 0.18 45;
+    --chart-4: 0.55 0.22 25;
+    --chart-5: 0.65 0.18 120;
+
+    --sidebar: 0.32 0.18 160;
+    --sidebar-foreground: 0.98 0 0;
+    --sidebar-primary: 0.32 0.18 160;
+    --sidebar-primary-foreground: 0.98 0 0;
+    --sidebar-accent: 0.6 0.18 45;
+    --sidebar-accent-foreground: 0.12 0 0;
+    --sidebar-border: 0.4 0.1 160;
+    --sidebar-ring: 0.32 0.18 160;
+  }
+
+  .dark {
+    --background: 0.14 0 0;
+    --foreground: 0.95 0 0;
+    --card: 0.18 0 0;
+    --card-foreground: 0.95 0 0;
+    --popover: 0.2 0 0;
+    --popover-foreground: 0.95 0 0;
+
+    --primary: 0.65 0.15 160;
+    --primary-foreground: 0.95 0 0;
+
+    --secondary: 0.6 0.18 25;
+    --secondary-foreground: 0.95 0 0;
+    --muted: 0.25 0 0;
+    --muted-foreground: 0.65 0 0;
+
+    --accent: 0.7 0.16 45;
+    --accent-foreground: 0.14 0 0;
+
+    --destructive: 0.65 0.19 22;
+    --destructive-foreground: 0.95 0 0;
+
+    --border: 0.25 0 0;
+    --input: 0.22 0 0;
+    --ring: 0.7 0.15 160;
+
+    --chart-1: 0.65 0.15 160;
+    --chart-2: 0.6 0.18 25;
+    --chart-3: 0.7 0.16 45;
+    --chart-4: 0.65 0.19 22;
+    --chart-5: 0.72 0.14 120;
+
+    --sidebar: 0.14 0 0;
+    --sidebar-foreground: 0.95 0 0;
+    --sidebar-primary: 0.65 0.15 160;
+    --sidebar-primary-foreground: 0.95 0 0;
+    --sidebar-accent: 0.7 0.16 45;
+    --sidebar-accent-foreground: 0.14 0 0;
+    --sidebar-border: 0.22 0 0;
+    --sidebar-ring: 0.7 0.15 160;
+  }
+
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-body antialiased;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@font-face {
+  font-family: "Bricolage Grotesque";
+  src: url("/assets/fonts/BricolageGrotesque.woff2") format("woff2");
+  font-weight: 400 900;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "DM Sans";
+  src: url("/assets/fonts/DMSans.woff2") format("woff2");
+  font-weight: 400 700;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Geist Mono";
+  src: url("/assets/fonts/GeistMono.woff2") format("woff2");
+  font-weight: 400 700;
+  font-display: swap;
+}
+
+/* ─── KEYFRAME ANIMATIONS ─── */
+@keyframes ken-burns {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.08);
+  }
+}
+
+@keyframes fade-slide-up {
+  0% {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes bounce-y {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(8px);
+  }
+}
+
+@keyframes pulse-glow {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 oklch(0.32 0.18 160 / 0.5);
+  }
+  50% {
+    box-shadow: 0 0 0 12px oklch(0.32 0.18 160 / 0);
+  }
+}
+
+@keyframes pulse-glow-green {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(27, 94, 32, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 0 14px rgba(27, 94, 32, 0);
+  }
+}
+
+@keyframes count-line {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes blink-dot {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.2;
+  }
+}
+
+@keyframes draw-line {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes slide-in-right {
+  from {
+    opacity: 0;
+    transform: translateX(-16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes scale-in {
+  from {
+    opacity: 0;
+    transform: scale(0.7);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes float-up {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+@layer utilities {
+  .transition-smooth {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .transition-fast {
+    transition: all 0.18s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .text-data {
+    @apply font-mono text-sm font-medium text-muted-foreground;
+  }
+
+  .btn-primary {
+    @apply bg-primary text-primary-foreground px-6 py-3 rounded-sm font-semibold hover:opacity-90 transition-smooth;
+  }
+
+  .btn-secondary {
+    @apply bg-secondary text-secondary-foreground px-6 py-3 rounded-sm font-semibold hover:opacity-90 transition-smooth;
+  }
+
+  .card-minimal {
+    @apply bg-card border border-border p-6 rounded-sm;
+  }
+
+  /* Hero */
+  .hero-bg-zoom {
+    animation: ken-burns 20s ease-in-out infinite alternate;
+  }
+
+  .animate-fade-slide-up {
+    animation: fade-slide-up 0.6s cubic-bezier(0.4, 0, 0.2, 1) both;
+  }
+
+  .animate-bounce-y {
+    animation: bounce-y 1.5s ease-in-out infinite;
+  }
+
+  .animate-pulse-glow {
+    animation: pulse-glow 2.4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  .animate-pulse-glow-green {
+    animation: pulse-glow-green 2s ease-in-out infinite;
+  }
+
+  .animate-blink-dot {
+    animation: blink-dot 1.2s ease-in-out infinite;
+  }
+
+  .animate-float-up {
+    animation: float-up 3s ease-in-out infinite;
+  }
+
+  .animate-scale-in {
+    animation: scale-in 0.45s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+  }
+
+  /* Section entrance */
+  .section-enter {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.65s cubic-bezier(0.4, 0, 0.2, 1), transform 0.65s
+      cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .section-enter.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Card hover */
+  .card-hover {
+    transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.25s
+      cubic-bezier(0.4, 0, 0.2, 1), border-color 0.25s
+      cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .card-hover:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px -4px oklch(0.32 0.18 160 / 0.14);
+  }
+
+  /* Stats scanline texture */
+  .scanline-overlay::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(255, 255, 255, 0.015) 2px,
+      rgba(255, 255, 255, 0.015) 4px
+    );
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* Diagonal pattern for CTA */
+  .diagonal-pattern::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 20px,
+      rgba(255, 255, 255, 0.025) 20px,
+      rgba(255, 255, 255, 0.025) 21px
+    );
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* Tag pill */
+  .tag-pill {
+    @apply font-mono text-xs font-semibold px-2 py-0.5 rounded-sm border;
+  }
+
+  /* Active filter indicator */
+  .filter-active {
+    @apply relative;
+  }
+  .filter-active::after {
+    content: "";
+    @apply absolute -bottom-px left-0 right-0 h-0.5 bg-secondary rounded-full;
+  }
+
+  /* Button glow hover */
+  .btn-glow-primary:hover {
+    box-shadow: 0 0 0 4px oklch(0.32 0.18 160 / 0.25), 0 4px 16px
+      oklch(0.32 0.18 160 / 0.3);
+  }
+
+  .btn-glow-secondary:hover {
+    box-shadow: 0 0 0 4px oklch(0.25 0.2 25 / 0.25), 0 4px 16px
+      oklch(0.25 0.2 25 / 0.3);
+  }
+
+  /* Link underline slide */
+  .link-underline {
+    @apply relative;
+  }
+  .link-underline::after {
+    content: "";
+    @apply absolute left-0 bottom-0 h-px bg-current w-0;
+    transition: width 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .link-underline:hover::after {
+    @apply w-full;
+  }
+
+  /* Timeline line draw animation */
+  .timeline-line {
+    animation: draw-line 1.2s cubic-bezier(0.4, 0, 0.2, 1) both;
+  }
+}
